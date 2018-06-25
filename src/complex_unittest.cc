@@ -41,7 +41,7 @@
 #include "gtest/gtest.h"
 namespace {
 
-// Tests edu::sbcc:cs140::HelloWorld::greetWorld().
+// Tests edu::sbcc:cs140::Complex.
 
     using edu::sbcc::cs140::Complex;
 
@@ -71,7 +71,7 @@ namespace {
             }
 
             std::cout << "The assignment is worth a total of " << MAX_OVERALL_SCORE
-                      << " where the remainding points" << std::endl;
+                      << " where the remaining points" << std::endl;
             std::cout << "comes from grading related to documentation, algorithms, and other"
                       << std::endl;
             std::cout << "criteria." << std::endl << std::endl;
@@ -80,11 +80,10 @@ namespace {
 
     uint ComplexNumbersTest::_testScore = 0;
 
-// Tests returned string of greetWorld().
     TEST_F(ComplexNumbersTest, Identity) {
-        // This test is named "Positive", and belongs to the "HelloWorld"
-        // test case.
-        // ASSERT_EQ("Hello, World!", HelloWorld::greetWorld());
+        // This test is named "Identity", it checks that the basic identity
+        // complex number, i, has the correct values for real and imaginary
+        // parts.
         ASSERT_EQ(0.0, Complex::i.getRealPart());
         ASSERT_EQ(1.0, Complex::i.getImaginaryPart());
 
@@ -92,6 +91,8 @@ namespace {
     }
 
     TEST_F(ComplexNumbersTest, IdentityOperators) {
+        // This test is named "IdentityOperators", it checks that the operators
+        // all work for the identity complex number, i.
         ASSERT_EQ(Complex::i, Complex::i);
         ASSERT_NE(Complex(0), Complex::i);
         ASSERT_EQ(0.0, Complex::i - Complex::i);
@@ -102,6 +103,9 @@ namespace {
     }
 
     TEST_F(ComplexNumbersTest, Common) {
+        // This test is named "Common", it tests common complex numbers and that
+        // the have the correct values for real and imaginary parts based on the
+        // parameters passed to the constructor.
         Complex a( 1.0,  2.0);
         Complex b(-1.0);
         Complex c(0.0, 2.0);
@@ -117,6 +121,9 @@ namespace {
     }
 
     TEST_F(ComplexNumbersTest, CommonArithmeticOperators) {
+        // This test is named "CommonArithmethicOperators", it tests common complex
+        // numbers with arithmetic operators +, -, * to make sure they compute the
+        // correct results.
         Complex a(1.0, 1.0);
         Complex b(1.0);
 
@@ -141,6 +148,9 @@ namespace {
     }
 
     TEST_F(ComplexNumbersTest, CommonRelationalOperators) {
+        // This test is named "CommonRelationalOperators", it tests that
+        // the relational operators work properly for common complex
+        // numbers, that they produce the correct result.
         ASSERT_EQ(Complex::i, Complex::i);
         ASSERT_NE(Complex::i, 0.0);
         ASSERT_NE(0.0, Complex::i);
@@ -157,8 +167,10 @@ namespace {
     }
 
     TEST_F(ComplexNumbersTest, IOOutput) {
+        // This test is named "IOOutput", it tests that the output
+        // created by calling the << operator is formatted as
+        // specified in the assignment description.
         ostringstream out;
-
         out << Complex::i;
 
         ASSERT_EQ("i", out.str());
@@ -213,6 +225,9 @@ namespace {
     }
 
     TEST_F(ComplexNumbersTest, IOInput) {
+        // This test is named "IOInput", it test that the input
+        // operator >> properly sets the real and imaginary parts
+        // of a Complex object based on the given input sequence.
         Complex c(0.0);
         istringstream in("-1 - i");
         in >> c;
@@ -288,10 +303,15 @@ namespace {
         ASSERT_EQ(-3.0, c.getRealPart());
         ASSERT_EQ(0.0, c.getImaginaryPart());
 
+        // A little extra credit for getting all the input formats
+        // to work
         _testScore += 3;
     }
 
     TEST_F(ComplexNumbersTest, IOInputBadInput) {
+        // This test is named "IOInputBadInput", it tests that the
+        // implementation of the >> operator properly detects bad
+        // input and does not update the real and imaginary parts.
         Complex c(1.0);
         istringstream in("-1 * i");
         in >> c;
