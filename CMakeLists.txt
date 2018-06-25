@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.5)
 project (EX04-ComplexNumbers)
 
 set(SOURCE_PREFIX "complex")
-set(EXEC_NAME "complex")
+set(EXEC_NAME "ComplexNumbers")
 
 if(EXISTS ${CMAKE_HOME_DIRECTORY}/cs140/CMakeLists.txt)
     include(cs140/CMakeLists.txt)
