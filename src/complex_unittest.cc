@@ -53,7 +53,7 @@ namespace {
 
     class ComplexNumbersTest : public ::testing::Test {
     protected:
-        static const uint MAX_TESTED_SCORE = 5;
+        static const uint MAX_TESTED_SCORE = 20;
         static const uint MAX_OVERALL_SCORE = 25;
         static uint _testScore;
 
@@ -71,7 +71,7 @@ namespace {
             }
 
             std::cout << "The assignment is worth a total of " << MAX_OVERALL_SCORE
-                      << " where the remainder of 3 points" << std::endl;
+                      << " where the remainding points" << std::endl;
             std::cout << "comes from grading related to documentation, algorithms, and other"
                       << std::endl;
             std::cout << "criteria." << std::endl << std::endl;
@@ -88,7 +88,7 @@ namespace {
         ASSERT_EQ(0.0, Complex::i.getRealPart());
         ASSERT_EQ(1.0, Complex::i.getImaginaryPart());
 
-        _testScore += 1;
+        _testScore += 2;
     }
 
     TEST_F(ComplexNumbersTest, IdentityOperators) {
@@ -98,7 +98,7 @@ namespace {
         ASSERT_EQ(Complex(0.0, 2.0), Complex::i + Complex::i);
         ASSERT_EQ(-1.0, Complex::i * Complex::i);
 
-        _testScore += 1;
+        _testScore += 2;
     }
 
     TEST_F(ComplexNumbersTest, Common) {
@@ -113,7 +113,7 @@ namespace {
         ASSERT_EQ(0.0, c.getRealPart());
         ASSERT_EQ(2.0, c.getImaginaryPart());
 
-        _testScore += 1;
+        _testScore += 2;
     }
 
     TEST_F(ComplexNumbersTest, CommonArithmeticOperators) {
@@ -137,7 +137,7 @@ namespace {
         ASSERT_EQ(1.0, mul2.getRealPart());
         ASSERT_EQ(1.0, mul2.getImaginaryPart());
 
-        _testScore += 1;
+        _testScore += 2;
     }
 
     TEST_F(ComplexNumbersTest, CommonRelationalOperators) {
@@ -153,7 +153,7 @@ namespace {
         ASSERT_NE(a, b);
         ASSERT_NE(b, a);
 
-        _testScore + 1;
+        _testScore + 2;
     }
 
     TEST_F(ComplexNumbersTest, IOOutput) {
@@ -168,25 +168,30 @@ namespace {
 
         ASSERT_EQ("0", out.str());
 
+        _testScore += 1;
+
         out.seekp(ostringstream::beg);
         out << Complex(1.0, 1.0);
 
         ASSERT_EQ("1 + i", out.str());
 
         out.seekp(ostringstream::beg);
-        out << Complex(1.0, -1.0);
+        out << Complex(2.0, -2.0);
 
-        ASSERT_EQ("1 - i", out.str());
+        ASSERT_EQ("2 - 2i", out.str());
 
         out.seekp(ostringstream::beg);
-        out << Complex(-1.0, -1.0);
+        out << Complex(-1.1, -1.1);
 
-        ASSERT_EQ("-1 - i", out.str());
+        ASSERT_EQ("-1.1 - 1.1i", out.str());
 
+        out.str("");
         out.seekp(ostringstream::beg);
         out << Complex(-1.0, 1.0);
 
         ASSERT_EQ("-1 + i", out.str());
+
+        _testScore += 1;
 
         out.str("");
         out.seekp(ostringstream::beg);
@@ -203,21 +208,40 @@ namespace {
         out << Complex(0, -1.0);
 
         ASSERT_EQ("-i", out.str());
+
+        _testScore += 1;
     }
 
     TEST_F(ComplexNumbersTest, IOInput) {
         Complex c(0.0);
-        istringstream in("-1 + i");
-        in >> c;
-
-        ASSERT_EQ(-1.0, c.getRealPart());
-        ASSERT_EQ(1.0, c.getImaginaryPart());
-
-        in.str("-1 - i");
+        istringstream in("-1 - i");
         in >> c;
 
         ASSERT_EQ(-1.0, c.getRealPart());
         ASSERT_EQ(-1.0, c.getImaginaryPart());
+
+        in.clear();
+        in.str("2.0+3.0i");
+        in >> c;
+
+        ASSERT_EQ(2.0, c.getRealPart());
+        ASSERT_EQ(3.0, c.getImaginaryPart());
+
+        in.clear();
+        in.str("0+3.0i");
+        in >> c;
+
+        ASSERT_EQ(0.0, c.getRealPart());
+        ASSERT_EQ(3.0, c.getImaginaryPart());
+
+        in.clear();
+        in.str("1.0+0i");
+        in >> c;
+
+        ASSERT_EQ(1.0, c.getRealPart());
+        ASSERT_EQ(0.0, c.getImaginaryPart());
+
+        _testScore += 1;
 
         in.str("-1");
         in >> c;
@@ -231,6 +255,8 @@ namespace {
 
         ASSERT_EQ(1.0, c.getRealPart());
         ASSERT_EQ(0.0, c.getImaginaryPart());
+
+        _testScore += 2;
 
         in.clear();
         in.str("i");
@@ -246,6 +272,8 @@ namespace {
         ASSERT_EQ(0.0, c.getRealPart());
         ASSERT_EQ(-1.0, c.getImaginaryPart());
 
+        _testScore += 2;
+
         in.clear();
         in.str("-3i");
         in >> c;
@@ -260,12 +288,7 @@ namespace {
         ASSERT_EQ(-3.0, c.getRealPart());
         ASSERT_EQ(0.0, c.getImaginaryPart());
 
-        in.clear();
-        in.str("2.0-3.0i");
-        in >> c;
-
-        ASSERT_EQ(2.0, c.getRealPart());
-        ASSERT_EQ(-3.0, c.getImaginaryPart());
+        _testScore += 3;
     }
 
     TEST_F(ComplexNumbersTest, IOInputBadInput) {
@@ -276,11 +299,15 @@ namespace {
         ASSERT_EQ(1.0, c.getRealPart());
         ASSERT_EQ(0.0, c.getImaginaryPart());
 
+        _testScore += 2;
+
         in.str("a");
         in >> c;
 
         ASSERT_EQ(1.0, c.getRealPart());
         ASSERT_EQ(0.0, c.getImaginaryPart());
+
+        _testScore += 2;
 
         in.clear();
         in.str("-1 a i");
@@ -288,5 +315,7 @@ namespace {
 
         ASSERT_EQ(1.0, c.getRealPart());
         ASSERT_EQ(0.0, c.getImaginaryPart());
+
+        _testScore += 2;
     }
 }  // namespace

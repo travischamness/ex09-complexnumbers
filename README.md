@@ -1,4 +1,4 @@
-## Exercise: ComplexNumbers (10 Points)
+## Exercise: ComplexNumbers (20 Points)
 
 The objective of this project is to learn how to implement operators for C++ classes
 and use input and output streams.
