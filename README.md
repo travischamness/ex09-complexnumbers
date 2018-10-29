@@ -127,16 +127,17 @@ assignment minus code styling points which I will add later.
 
 ### Submitting the code for this project
 
-At the bottom of CLion there should be a view tab labeled **Version Control**.
-Select this tab at the bottom of the screen. You should see a tab called **Local Changes**.
-Under **Unversion Files** you should have two files: `helloworld.cc` and `helloworld.h`.
-Select these files and right-click on them. In the drop-down menu
-select **Add to VCS**. Next, right-click on these files again, which should
-now be under **Default** and select **Commit**. Add the appropriate
-commit message and click **OK**. Finally, right click on the committed files,
-select `Git -> Repository -> Push...`. Follow the onscreen directions
+First, right click on the project name, then select `Git -> Commit Directory...`. 
+Make sure only the files you want to push are selected, `main.cc` `player.cc`, `human.cc` (or whatever you called them) and `balrog.h`, `cyberdemon.h`, `elf.h`, &
+`player.h` (along with any others you created). Then uncheck `Perform code analysis` and `Check TODO`. It's OK to leave them checked,
+but committing will take longer. Leave `Run git hooks` checked. Put a message in `Commit Message`
+and then press the **Commit** button. If anything goes wrong check the _Version Control_ view
+in the lower left corner and select the _Console_ tab.
+ 
+Finally, right click on the project name,
+then select `Git -> Repository -> Push...`. Follow the onscreen directions
 and press **OK**. This step will run the tests again, check that everything is OK
 and then submit them to the cloud to have the tests run for grading.
 
 If you do not understand these directions, or wish to do them on the command
-line rather than in CLion, then read these [directions](https://github.com/sbcc-cs140-fall2018/HowToSubmitEveryProject).
+line rather than in CLion, then read these [directions](https://github.com/sbcc-cs140-fall2018/Course-Information/wiki/How-to-Turn-In-Every-Project).
