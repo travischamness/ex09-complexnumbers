@@ -70,8 +70,7 @@ There are only three requirements for creating the code for this project correct
 be sure that you create a class named `Complex` in the namespace `edu::vcccd::vc::csv13` with
 the give interface from above. Two, you can put your implementation in a file with the 
 name of your choice as long as it uses the `.cc` extension, and is in the `src` directory.
-Three, you can put you class definition in a file with the name of your choice as long as 
-it uses the `.h` extension, and is in the `include` directory.
+Three, you can put you class definition in a file with the name `complex.h` extension, and is in the `include` directory.
 
 #### All files must have the header comment
 
@@ -128,8 +127,7 @@ assignment minus code styling points which I will add later.
 ### Submitting the code for this project
 
 First, right click on the project name, then select `Git -> Commit Directory...`. 
-Make sure only the files you want to push are selected, `main.cc` `player.cc`, `human.cc` (or whatever you called them) and `balrog.h`, `cyberdemon.h`, `elf.h`, &
-`player.h` (along with any others you created). Then uncheck `Perform code analysis` and `Check TODO`. It's OK to leave them checked,
+Make sure only the files you want to push are selected, `main.cc` `complex.cc` (or whatever you called them) and `balrog.h`, `complex.h`. Then uncheck `Perform code analysis` and `Check TODO`. It's OK to leave them checked,
 but committing will take longer. Leave `Run git hooks` checked. Put a message in `Commit Message`
 and then press the **Commit** button. If anything goes wrong check the _Version Control_ view
 in the lower left corner and select the _Console_ tab.
