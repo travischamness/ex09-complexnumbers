@@ -43,7 +43,7 @@ namespace {
 
 // Tests edu::sbcc:cs140::Complex.
 
-    using edu::sbcc::cs140::Complex;
+    using edu::vcccd::vc::csv13::Complex;
 
     using std::istringstream;
     using std::ostringstream;

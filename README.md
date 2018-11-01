@@ -5,7 +5,7 @@ and use input and output streams.
 
 The first thing you will need to do is fork and clone this assignment
 from GitHub. Follow the instructions
-[here](https://github.com/sbcc-cs140-fall2018/HowToStartEveryProject)
+[here](https://github.com/vcc-csv13-fall2018/HowToStartEveryProject)
 to get started.
 
 Be sure that you fork the project first and use the URL from
@@ -14,7 +14,7 @@ the forked project when you clone it in CLion.
 ### Requirements of this project
 
 This project is based on the programming assignment #2 from Chapter 8. In 
-it you will create a class called Complex (in the namespace `edu::sbcc::cs140`)
+it you will create a class called Complex (in the namespace `edu::vcccd::vc::csv13`)
 based on the mathematical understanding of the imaginary numbers. Imaginary numbers
 are made up of two components, a real part and an imaginary part. The imaginary
 part is a constant times the square root of -1.
@@ -31,7 +31,7 @@ return the individual components of the complex number. Be sure to use proper
 
 Finally, this class defines several operators. Specifically you must implement +, -, 
 *, ==, !=, << and >>. You don't need to implement the = operator (do you understand
-why?). These operators should be external to the class, though still in the `edu.sbcc.cs140` 
+why?). These operators should be external to the class, though still in the `edu::vcccd::vc::csv13` 
 namespace, and also be declared as friend methods. Also, as in the original assignment
 you should declare a constant `i` within Complex that has the form `(0, 1)`.
 
@@ -67,7 +67,7 @@ format is correct.
 ### Writing the code for this Project
 
 There are only three requirements for creating the code for this project correctly. One,
-be sure that you create a class named `Complex` in the namespace `edu::sbcc::cs140` with
+be sure that you create a class named `Complex` in the namespace `edu::vcccd::vc::csv13` with
 the give interface from above. Two, you can put your implementation in a file with the 
 name of your choice as long as it uses the `.cc` extension, and is in the `src` directory.
 Three, you can put you class definition in a file with the name of your choice as long as 
@@ -140,4 +140,4 @@ and press **OK**. This step will run the tests again, check that everything is O
 and then submit them to the cloud to have the tests run for grading.
 
 If you do not understand these directions, or wish to do them on the command
-line rather than in CLion, then read these [directions](https://github.com/sbcc-cs140-fall2018/Course-Information/wiki/How-to-Turn-In-Every-Project).
+line rather than in CLion, then read these [directions](https://github.com/vcc-csv13-fall2018/Course-Information/wiki/How-to-Turn-In-Every-Project).
